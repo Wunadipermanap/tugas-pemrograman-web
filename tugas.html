@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Percobaan</title>
+  </head>
+  <body>
+    <h1>Input Nilai</h1>
+    <h3>Absensi</h3>
+    <input type="text" id="absensi" />
+
+    <h3>Tugas</h3>
+    <input type="text" id="tugas" />
+
+    <h3>UTS</h3>
+    <input type="text" id="uts" />
+
+    <h3>UAS</h3>
+    <input type="text" id="uas" />
+
+    <button id="tombol" onclick="hitung()">Oke</button>
+    <h1 id="output"></h1>
+
+    <h1 id="keterangan"></h1>
+
+    <script>
+      function hitung() {
+        let absensi = document.getElementById("absensi").value;
+        let tugas = document.getElementById("tugas").value;
+        let uts = document.getElementById("uts").value;
+        let uas = document.getElementById("uas").value;
+        let Nilai = parseFloat(absensi * 0.4) + parseFloat(tugas * 0.1) + parseFloat(uts * 0.2) + parseFloat(uas * 0.3);
+        document.getElementById("output").textContent = Nilai;
+
+        if (Nilai >= 90) {
+          document.getElementById("keterangan").textContent = "Selamat Anda Mendapat Nilai A";
+        } else if (Nilai >= 80 && Nilai <= 89) {
+          document.getElementById("keterangan").textContent = "Selamat Anda Mendapat Nilai B";
+        } else if (Nilai >= 70 && Nilai <= 79) {
+          document.getElementById("keterangan").textContent = "Ayo Lebih Semangat Lagi, Anda Mendapat Nilai C";
+        } else if (Nilai <= 69) {
+          document.getElementById("keterangan").textContent = "Maaf Anda Harus Mengulang Mata Kuliah, Anda Mendapat Nilai D";
+        }
+      }
+    </script>
+  </body>
+</html>
